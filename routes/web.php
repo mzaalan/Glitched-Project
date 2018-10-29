@@ -83,8 +83,9 @@ Route::post('/membership', 'MembershipsController@index')->name('membership.inde
 Route::post('/event', 'MembershipsController@eventIndex')->name('membership.eventIndex');
 
 //Route::post('/event/{kidsAmount}-{kids}/{amount}-{quantity}/{name}-{phone}/{vip}-{vipAmount}-{email}', 'MembershipsController@event')->name('membership.eventConfirm');
-Route::post('/event{kidsAmount}-{kids}/{amount}-{quantity}/{name}-{phone}/{vip}-{vipAmount}-{email}', [
-    'uses' => 'MembershipsController@eventConfirm'
+Route::post('/event/confirm', [
+    'uses' => 'MembershipsController@eventConfirm',
+    'as' => 'event.confirm'
   ]);
 //   Route::get('/event{kidsAmount}-{kids}/{amount}-{quantity}/{name}-{phone}/{vip}-{vipAmount}-{email}', [
 //     'uses' => 'PagesController@eventConfrim'

@@ -12,7 +12,17 @@
 
         <div class="col-md-8 col-md-offset-2">
 
-                <form encrypt = 'multipart/form-data' action="{{ action('MembershipsController@eventConfirm', ['kidsAmount' => $kidsAmount, 'kids' => $kids, 'amount' => $amount, 'quantity' => $quantity, 'phone' => $phone, 'name' => $name, 'vip' => $vip, 'vipAmount' => $vipAmount, 'email' => $email]) }}" method="POST">
+		<form encrypt = 'multipart/form-data' action="{{ route('event.confirm') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="kidsAmount" value="{{$kidsAmount}}" />
+                    <input type="hidden" name="kids" value="{{$kids}}" />
+                    <input type="hidden" name="amount" value="{{$amount}}" />
+                    <input type="hidden" name="quantity" value="{{$quantity}}" />
+                    <input type="hidden" name="phone" value="{{$phone}}" />
+                    <input type="hidden" name="name" value="{{$name}}" />
+                    <input type="hidden" name="vip" value="{{$vip}}" />
+                    <input type="hidden" name="vipAmount" value="{{$vipAmount}}" />
+                    <input type="hidden" name="email" value="{{$email}}" />
                     {{ csrf_field() }}
 
                     <h3>Please review your order</h3>

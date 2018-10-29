@@ -98,7 +98,16 @@ class MembershipsController extends Controller
 
 
 
-    public function eventConfirm(Request $request, $kidsAmount, $kids, $amount, $quantity, $name, $phone, $vip, $vipAmount , $email){
+    public function eventConfirm(Request $request){
+        $kidsAmount  = $request->get('kidsAmount');
+        $kids = $request->get('kids');
+        $amount = $request->get('amount');
+        $quantity = $request->get('quantity');
+        $name = $request->get('name');
+        $phone = $request->get('phone');
+        $vip = $request->get('vip');
+        $vipAmount = $request->get('vipAmount');
+        $email = $request->get('email');
 
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
         $token  = $_POST['stripeToken'];
